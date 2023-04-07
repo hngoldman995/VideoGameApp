@@ -1,4 +1,7 @@
 
+
+
+
 const options = {
 	method: 'GET',
 	headers: {
@@ -11,25 +14,18 @@ fetch('https://opencritic-api.p.rapidapi.com/game/upcoming', options)
 	.then(response => {
         return response.json();
     })
-
-    
 	.then(data => {
         console.log(data)
         data.forEach(movie => {
-            const movieTitles = `<ul>${movie.name}</ul>`;
-            const movieImages = `<img src="${movie.images.banner}">`;
+            
+            const movieTitles = `<h3>${movie.name}</h3>`;
+            // const movieImages = `<img src="${movie.images.banner.og}">`;
+            document.querySelector('.item').insertAdjacentHTML('beforeend', movieTitles);
 
-            document.querySelector('section').insertAdjacentHTML('beforeend', movieTitles);
-
-            document.querySelector('ul').insertAdjacentHTML('beforeend', movieImages)
-
-           
-    
-
-        })
+            // document.querySelector('ul').insertAdjacentHTML('beforeend', movieImages)
+        })   
     })
-    
 	.catch(err => console.error(err));
 
     
-    
+ 
