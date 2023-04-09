@@ -16,16 +16,33 @@ fetch('https://opencritic-api.p.rapidapi.com/game/upcoming', options)
     })
 	.then(data => {
         console.log(data)
-        data.forEach(movie => {
-            
-            const movieTitles = `<h3>${movie.name}</h3>`;
-            // const movieImages = `<img src="${movie.images.banner.og}">`;
-            document.querySelector('.item').insertAdjacentHTML('beforeend', movieTitles);
+        
+        // data.forEach(game => {
+        //     const gameTitles = `<ul>${game.name}</ul>`;
+        //     const gameImages = `<img src="${game.images.banner.og}">`;
+        //     document.querySelector('section').insertAdjacentHTML('beforeend', gameTitles);
 
-            // document.querySelector('ul').insertAdjacentHTML('beforeend', movieImages)
-        })   
+        //     document.querySelector('ul').insertAdjacentHTML('beforeend', movieImages)
+        // })   
+        const gamesContainer = document.createElement('div')
+data.forEach(game => {
+    const gameWrapper = document.createElement('div')
+    const gameTitle = document.createElement('h2')
+    const gameImg = document.createElement('img')
+    const gameRelease = document.createElement('h4')
+    gameRelease.innerText = `${game.firstReleaseDate}`
+    gameTitle.innerText = `${game.name}`;
+    gameImg.src = `${game.images.box}"`;
+    gameWrapper.appendChild(gameTitle)
+    gameWrapper.appendChild(gameImg)
+    gameWrapper.appendChild(gameRelease)
+    gamesContainer.appendChild(gameWrapper)
+});
+document.body.appendChild(gamesContainer)
+
     })
 	.catch(err => console.error(err));
 
     
- 
+    
+    
