@@ -67,16 +67,16 @@ fetch('https://opencritic-api.p.rapidapi.com/game/recently-released', options)
             const gameRelease = document.createElement('h4');
             gameRelease.innerText = `${game.firstReleaseDate}`;
             gameTitle.innerText = `${game.name}`;
-            gameImg.src = `${game.images.box.og}`;
+            gameImg.src = `https://opencritic-api.p.rapidapi.com/game/upcoming/${game.images.box.og}`;
             gameWrapper.appendChild(gameTitle);
             gameWrapper.appendChild(gameImg);
             gameWrapper.appendChild(gameRelease);
             gamesContainer.appendChild(gameWrapper);
         });
         document.body.appendChild(gamesContainer);
-        
-
     })
     
 
 	.catch(err => console.error(err));
+
+    
