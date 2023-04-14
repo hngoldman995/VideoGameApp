@@ -83,7 +83,7 @@
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '6c049fd770msh1cdc73180460014p113da5jsn145699b64423',
+            'RapidAPI-Key': '6c049fd770msh1cdc73180460014p113da5jsn145699b64423',
             'X-RapidAPI-Host': 'videogames-news2.p.rapidapi.com'
         }
     };
